@@ -1,0 +1,274 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+	
+	<html lang="ca_VA">
+		
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'self' 'unsafe-inline' 'unsafe-eval'; script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
+	<title>Web família - Generalitat Valenciana</title>
+	
+	<link rel="stylesheet" media="screen" href="../resources/wf/css/imc-por-defecto.css" />
+	<link rel="stylesheet" media="screen" href="../resources/wf/css/alumnos_listado.css" />
+	<!--[if IE 8]>
+	<script src="../resources/wf/js/utils/html5shiv.js"></script>
+	<link rel="stylesheet" type="text/css" href="../resources/wf/css/alumnos_listado-escritorio.css">
+	<![endif]-->
+	
+	<script src="../resources/wf/js/utils/jquery-3.3.1.min.js"></script>
+	
+</head>
+
+<body
+
+	 
+>
+	
+	<input style="display:none" type="text" value='V06GM7rddvw8vYqi8JPVLcoHAQbVlmAeFhK9i0IdxnKaoXOw9bUuqrpimATRSeH6' name="tokenSesion" id="tokenSesion"/>
+	<input style="display:none" type="text" value='null' name="origenApp" id="origenApp"/>
+	<input style="display:none" type="text" value='http://familia.edu.gva.es/wf-front/WEB-INF/jsp/myitaca/listar_alumnos_wf.jsp' name="urlActual" id="urlActual"/>
+	
+	
+			<div id="imc-media-queries" class="imc-media-queries"></div>
+	
+	<div class="imc-contenedor" id="imc-contenedor">
+		
+				
+
+
+		
+		<header id="imc-cabecera" 
+				     		    
+				style='display:inline'
+     		 
+			class="imc-cabecera">
+			
+			<div class="imc-itaca-logo" title="Ítaca"></div>
+			<h1>Web <em>família 2.0</em></h1>
+			<a href="logout_wf?tipo=out" class="bt bt-desconecta"><span>Desconnecta</span></a>
+			
+			<ul>
+				<li><a href="mas_info_wf" class="bt bt-mas-info bt-ajax "><span>Més informació</span></a></li>
+				<li><a href="tutor_wf" class="bt bt-usuario bt-ajax "><span>PAU SILVESTRE ARNANDIS</span></a></li>
+				<li><a href="listar_alumnos_wf" class="bt bt-alumnos-listado bt-seleccionado"><span>Alumnat</span></a></li>
+			</ul>
+			
+			<div class="imc-gva-logo" title="Generalitat Valenciana"></div>
+			
+		</header>
+		
+		<section class="imc-seccion" id="imc-seccion">
+			
+			<div id="imc-alumnos" class="imc-alumnos">
+			
+				<ul>
+					
+						<input type="hidden" id="patriaPotestad79856940" value="false"/>
+						
+						<li class="imc-alumno">
+						
+							<div class="imc-alumno-foto">
+								
+									<img src="documento_wf?foto_id=1135513054" alt="" />
+								
+
+								
+							</div>
+							
+							<div class="imc-alumno-datos">
+							
+								<a href="alumno_datos_wf?alumno_id=79856940" data-id="79856940" id="79856940" class="imc-alumno-nombre">PAU SILVESTRE ARNANDIS</a>
+								
+									<ul class="imc-alumno-matriculas">
+									
+										
+					
+											
+											
+												
+												<input type="hidden" id="codCurso" value="2CFS - Segon / DESENVOLUPAMENT D'APLICACIONS MULTIPLATAFORMA (LFP) / GS / INFORMÀTICA I COMUNICACIONS (LFP)"/>
+											
+                                            
+												<li>
+													<a href="alumno_matricula_wf?alumno_id=79856940&matricula_id=1123984294" data-id="1123984294">2CFS - Segon / DESENVOLUPAMENT D'APLICACIONS MULTIPLATAFORMA (LFP) / GS / INFORMÀTICA I COMUNICACIONS (LFP) - 2 DAM</a>
+												</li>
+												
+											
+											
+											
+									</ul>
+							
+							</div>
+							
+						</li>
+
+					
+					
+				</ul>
+			
+			</div>
+			
+			<p class="imc-ultima-conexion">Última connexió de <strong>SILVESTRE ARNANDIS, PAU</strong> el dia <em>11/12/2025 a les 08:56</em>.</p>
+		
+		</section>
+	
+		<section id="imc-escritorio-alumnos" class="imc-escritorio-seccion imc-escritorio-seccion-on">
+			<!-- info dinamica -->
+			<div class="imc-cargando imc-cargando-inicial"><span>Carregant contingut de l'alumne</span></div>
+		</section>
+		
+		
+		    
+		<section id="imc-escritorio-mas-info" class="imc-escritorio-seccion">
+			<!-- info dinamica -->
+		</section>
+		
+		<section id="imc-escritorio-tutor" class="imc-escritorio-seccion">
+			<!-- info dinamica -->
+		</section>
+		
+		<section id="imc-escritorio-profesor" class="imc-escritorio-seccion">
+			<!-- info dinamica -->
+		</section>
+		
+	</div>
+	
+
+	
+	<script>
+	
+	var valor_origenAppLocal = null
+	
+	if(valor_origenAppLocal==true){
+		origenAppLocal = true;
+	}else{
+		origenAppLocal = false;
+	}		
+
+	$("a").each(function() {
+		
+		if(origenAppLocal){
+			   var $this = $(this);       
+			   var _href = $this.attr("href");
+			   var _data_href = $this.attr("data-href");
+			  // alert(_href);
+			   if(_href.indexOf('?') != -1){
+				   $this.attr("href", _href + '&origenAPP=1');
+				   $this.attr("data-href", _data_href + '&origenAPP=1'); 
+				   console.log("href"+ _href + '&origenAPP=1');
+				   console.log("data-href"+ _data_href + '&origenAPP=1');
+			   }else{
+				   $this.attr("href", _href + '?origenAPP=1'); 
+				   $this.attr("data-href", _data_href + '?origenAPP=1'); 
+				   
+				   console.log("href"+ _href + '?origenAPP=1');
+				   console.log("data-href"+ _data_href + '?origenAPP=1');
+			   }
+		}
+		    
+	});
+	
+	function avisaPadreGenerico() {
+		
+		var tokenNuevo = "V06GM7rddvw8vYqi8JPVLcoHAQbVlmAeFhK9i0IdxnKaoXOw9bUuqrpimATRSeH6";
+		var urlActual = "http://familia.edu.gva.es/wf-front/WEB-INF/jsp/myitaca/listar_alumnos_wf.jsp";
+		//alert(urlActual);
+		parent.postMessage(
+					{motivo:    'nuevoTokenSesion', 
+						data: tokenNuevo,
+						url:urlActual},
+					"*"
+				);
+		
+										
+	}
+		
+		
+		if (window.addEventListener) {
+			window.addEventListener("message", handleParentMessage,false);
+		} else {
+			window.attachEvent("onmessage", handleParentMessage);
+		}
+		
+		function handleParentMessage(event) {
+		
+			var dataFromParentIframe = event.data;
+			
+		}
+		
+		
+		var anyoAcademico = ["1-9-2025", "31-8-2026"];
+		var hoy="11-12-2025";
+
+		var basedir = "../resources/wf/",
+			url_sin_sesion = "login_wf?session_expired",
+			url_comunicaciones = "alumno_avisos_wf?comunicaciones_id=",
+			calendario_dias_title = ['Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte', 'Diumenge'],
+			calendario_dias = ['Dl.', 'Dm.', 'Dc.', 'Dj.', 'Dv.', 'Ds.', 'Dg.'],
+			calendario_meses = ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'];
+
+		var txtMatriculas = 'Matrícules',
+			txtIr = 'Ves',
+			txtComunicaciones = 'Comunicacions',
+			txtDatosPersonales = 'Dades personals',
+			txtCargando = 'Carregant',
+			txtDescargando = 'Descarregant',
+			txtCancela = 'Cancel·la',
+			txtDeAcuerdo = 'D&apos;acord',
+			txtVerTodas = 'Mostra les totes',
+			txtDetalle = 'Detall',
+			txtVolverListado = 'Torna a la llista',
+			txtVerTodo = 'Mostra-ho tot',
+			txtAvisosDelDia = 'Avisos del dia',
+			txtAnterior = 'Anterior',
+			txtSiguiente = 'Següent',
+			txtLas5Ultimas = 'Les cinc últimes',
+			txtVerModulos = 'Mostra els mòduls',
+			txtHasDeCompletar = 'Completeu tots els camps',
+			txtModuloError = 'S&apos;ha produït un error mentre es carregava el mòdul. Torneu a intentar-ho passats uns minuts.',
+			txtVuelvaIntentarlo = 'Torneu a intentar-ho',
+			txtSinLeer = 'Sense llegir',
+			txtSinJustificar = 'Dies sense justificar',
+			txtVentanaNueva = 'Aquest enllaç s&apos;obri en una finestra nova ',
+			txtdiasFaltas = 'Dies amb faltes d&apos;assistència',
+			txtEnviandoMensaje = 'S&apos;està enviant un missatge',
+			txtCambiandoContrasenya = 'S&apos;està canviant la contrasenya',
+			txtVerLas5Ultimas = 'Mostra&apos;n les cinc últimes',
+			txtIdentidad = 'Identitat digital';
+			
+	</script>
+	
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+		    setTimeout(
+		        function open(event){
+		            document.querySelector(".imc-popup").style.display = "block";
+		        },
+		        100
+		    )
+		});
+	
+	
+		document.querySelector("#close").addEventListener("click", function(){
+		    document.querySelector(".imc-popup").style.display = "none";
+		});
+	</script>
+	
+	<script src="../resources/wf/js/utils/modernizr-2.8.3-custom.js"></script>
+	<script src="../resources/wf/js/alumnos_listado-config.js"></script>
+
+</body>
+</html>

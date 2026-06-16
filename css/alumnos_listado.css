@@ -1,0 +1,9 @@
+/* CSS Movil */
+
+@import url("alumnos_listado-mobile.css") screen and (min-width: 10px) and (max-width: 699px);
+
+@import url("alumnos_listado-mobile-mini.css") screen and (min-width: 10px) and (max-width: 320px);
+
+@import url("alumnos_listado-mobile-lanscape.css") screen and (min-width: 321px) and (max-width: 699px) and (orientation: landscape);
+
+@import url("alumnos_listado-escritorio.css") screen and (min-width: 700px);

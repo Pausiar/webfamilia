@@ -1,0 +1,2532 @@
+<!DOCTYPE html>
+<html lang="ca_VA">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Web família - Generalitat Valenciana</title>
+	
+	<style>
+		/* ============================================
+		   ESTILOS BASE - Web Família 2.0
+		   ============================================ */
+		
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font: normal 80% Arial, Helvetica, sans-serif;
+			background: #2f373a;
+			color: #333;
+			line-height: 1.4;
+			overflow-x: hidden;
+		}
+
+		a {
+			color: #0099cc;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		/* ============================================
+		   HEADER / CABECERA - EXACTO COMO ORIGINAL
+		   ============================================ */
+		
+		.imc-cabecera {
+			background-color: #fff !important;
+			min-height: 5em;
+			padding: .3em 0 0 1em;
+			position: relative;
+			display: block;
+		}
+
+		.imc-cabecera::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
+		.imc-itaca-logo {
+			float: left;
+			width: 10em;
+			height: 4em;
+			background: #fff url('img/itacaLogo.png') no-repeat left center;
+			background-size: contain;
+		}
+
+		.imc-cabecera h1 {
+			float: left;
+			font: normal 1.4em Georgia, "Times New Roman", Times, serif;
+			color: #00a0db;
+			line-height: 1.1em;
+			padding-left: 1.5em;
+			margin: .3em 0 0 0;
+			border-left: 1px solid #ccc;
+		}
+
+		.imc-cabecera h1 em {
+			display: block;
+			font-size: 1.5em;
+			color: #006790;
+			font-style: italic;
+		}
+
+		.imc-cabecera ul {
+			list-style: none;
+		}
+
+		.imc-cabecera li {
+			display: inline;
+		}
+
+		/* Botones del header */
+		a.bt {
+			overflow: visible;
+			display: inline-block;
+			color: #fff;
+			text-decoration: none;
+			padding: .4em 1em;
+			background-color: #13addf;
+			border: none;
+			border-radius: .3em;
+			transition: all .2s linear;
+			font-size: 1em;
+		}
+
+		a.bt:hover {
+			background-color: #005976;
+			transition: all .3s linear;
+		}
+
+		.bt span {
+			color: white;
+		}
+
+		/* Botones posicionados absolutos */
+		.imc-cabecera a.bt-mas-info {
+			position: absolute;
+			top: 2em;
+			left: 5em;
+			background-color: #13addf;
+		}
+
+		.imc-cabecera a.bt-usuario {
+			position: absolute;
+			top: 2em;
+			left: 22em;
+			background-color: #13addf;
+		}
+
+		.imc-cabecera a.bt-desconecta {
+			position: absolute;
+			top: 2em;
+			right: 1em;
+			background-color: #c00;
+		}
+
+		.imc-cabecera a.bt-desconecta:hover {
+			background-color: #900;
+		}
+
+		/* Iconos de los botones */
+		.imc-cabecera a.bt::before {
+			content: "";
+			display: block;
+			float: left;
+			width: 1.2em;
+			height: 1.2em;
+			margin-right: .8em;
+			background: #fff;
+			border: 1px solid #fff;
+			border-radius: 1em;
+		}
+
+		.imc-cabecera a.bt-mas-info::before {
+			background: #fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2313addf"><text x="12" y="18" text-anchor="middle" font-size="18" font-weight="bold" font-family="serif" font-style="italic">i</text></svg>') no-repeat 50% 50%;
+			background-size: 80%;
+		}
+
+		.imc-cabecera a.bt-usuario::before {
+			background: #fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2313addf"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>') no-repeat 50% 100%;
+			background-size: 90%;
+		}
+
+		.imc-cabecera a.bt-desconecta::before {
+			background: #fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23c00"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>') no-repeat 50% 50%;
+			background-size: 70%;
+		}
+
+		.bt-alumnos-listado {
+			display: none !important;
+		}
+
+		.imc-gva-logo {
+			display: none;
+		}
+
+		/* ============================================
+		   BARRA DE USUARIO / ALUMNO SELECCIONADO
+		   ============================================ */
+		
+		.imc-seccion {
+			background-color: #13addf;
+			padding: 0;
+		}
+
+		.imc-alumnos {
+			padding: 0;
+		}
+
+		.imc-alumnos ul {
+			display: flex;
+			align-items: center;
+			list-style: none;
+		}
+
+		.imc-alumno {
+			display: flex;
+			align-items: center;
+			gap: 0;
+		}
+
+		.imc-alumno-foto {
+			display: none;
+		}
+
+		.imc-alumno-nombre {
+			color: white;
+			font-weight: 400;
+			background: rgba(0,0,0,0.2);
+			padding: .5em 1em;
+			border-radius: 3px;
+			font-size: 1em;
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			margin: .5em 1em;
+			text-decoration: none;
+		}
+
+		.imc-alumno-nombre::before {
+			content: "";
+			width: 1.2em;
+			height: 1.2em;
+			background: #fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2313addf"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"/></svg>') no-repeat center;
+			background-size: 90%;
+			border-radius: 50%;
+			display: inline-block;
+		}
+
+		.imc-alumno-nombre.imc-seleccionado {
+			background: rgba(0,0,0,0.3);
+		}
+
+		.imc-alumno-matriculas {
+			display: none !important;
+		}
+
+		.imc-alumno-datos {
+			display: inline;
+		}
+
+		.imc-alumno-datos ul,
+		.imc-alumno-datos li,
+		.imc-alumno-datos input {
+			display: none !important;
+		}
+
+		.imc-ultima-conexion {
+			display: none;
+		}
+
+		/* ============================================
+		   CONTENEDOR PRINCIPAL
+		   ============================================ */
+		
+		.imc-contenedor {
+			display: block;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		.imc-escritorio-seccion {
+			display: none;
+		}
+
+		.imc-escritorio-seccion-on {
+			display: flex;
+			padding: 10px 0 10px 10px;
+			gap: 10px;
+			background: url('img/bg.png') repeat;
+			width: 100%;
+			box-sizing: border-box;
+			overflow: hidden;
+		}
+
+		.imc-escritorio-alumno {
+			display: none;
+		}
+
+		.imc-escritorio-alumno-on {
+			display: flex;
+			width: 100%;
+			gap: 0;
+			box-sizing: border-box;
+		}
+
+		/* ============================================
+		   SIDEBAR / PANEL IZQUIERDO
+		   ============================================ */
+		
+		.imc-es-alumno {
+			width: 280px;
+			flex-shrink: 0;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.imc-es-al-bloque-on {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.imc-es-alumno-datos {
+			background: white;
+			border-radius: 8px;
+			padding: 15px;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+			margin-bottom: 15px;
+			border: 1px solid #ddd;
+		}
+
+		.imc-alumno-dp-foto {
+			width: 70px;
+			height: 90px;
+			background: #e0e0e0;
+			border-radius: 3px;
+			overflow: hidden;
+			float: left;
+			margin-right: 12px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+		}
+
+		.imc-alumno-dp-foto img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.imc-alumno-dp-datos {
+			overflow: hidden;
+		}
+
+		.imc-alumno-dp-nombre {
+			display: none;
+		}
+
+		.imc-alumno-dp-nia {
+			color: #0099cc;
+			font-size: 18px;
+			margin-bottom: 2px;
+			font-weight: normal;
+		}
+
+		.imc-alumno-dp-nia abbr {
+			color: #0099cc;
+			text-decoration: underline;
+		}
+
+		.imc-alumno-dp-nia strong {
+			font-weight: bold;
+			color: #333;
+		}
+
+		.fausto {
+			font-size: 13px;
+			margin-bottom: 2px;
+			color: #333;
+		}
+
+		.fausto abbr {
+			color: #0099cc;
+			text-decoration: underline;
+		}
+
+		.imc-alumno-dp-info {
+			font-size: 12px;
+			color: #666;
+			margin: 5px 0;
+			line-height: 1.3;
+		}
+
+		.bt-alumno-datos {
+			background-color: #00a0d2;
+			color: white !important;
+			padding: 5px 12px;
+			border-radius: 3px;
+			font-size: 12px;
+			display: inline-block;
+			margin-top: 8px;
+		}
+
+		/* Identidad Digital */
+		.imc-identidad-digital {
+			clear: both;
+			margin-top: 12px;
+			border-top: 1px solid #eee;
+			padding: 12px 15px 0 10px;
+		}
+
+		.imc-identidad {
+			font-size: 14px;
+			font-weight: 600;
+			margin-bottom: 10px;
+			color: #333;
+		}
+
+		.imc-identidad-digital > li {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 8px;
+			font-size: 12px;
+			align-items: flex-start;
+			padding: 0 5px;
+		}
+
+		.imc-etiqueta {
+			background-color: #e9ecef;
+			padding: 4px 8px;
+			border-radius: 3px;
+			min-width: 110px;
+			color: #666;
+			font-size: 12px;
+		}
+
+		.imc-dato {
+			padding: 4px 8px;
+			color: #333;
+		}
+
+		.imc-datos-correo li {
+			list-style: none;
+		}
+
+		#imc-id-contrasenya {
+			display: flex;
+			align-items: center;
+			color: #666;
+			cursor: pointer;
+		}
+
+		#imc-id-contrasenya::after {
+			content: " ›";
+			color: #0077b6;
+			font-size: 18px;
+			margin-left: 5px;
+		}
+
+		/* ============================================
+		   MATRÍCULAS
+		   ============================================ */
+		
+		.imc-es-alumno-matriculas {
+			background: transparent;
+			padding: 0;
+			box-shadow: none;
+			border: none;
+			border-radius: 0;
+			overflow: visible;
+			margin-bottom: 0;
+		}
+
+		.imc-es-alumno-matriculas h2 {
+			font-size: 14px;
+			color: #13addf;
+			margin: 0 0 10px 0;
+			font-weight: 600;
+			background: transparent;
+			padding: 0;
+		}
+
+		.imc-es-alumno-matriculas-contenido {
+			background: transparent;
+			padding: 0;
+			border-radius: 0;
+			margin-bottom: 0;
+		}
+
+		.imc-es-alumno-matriculas-contenido > ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.imc-es-alumno-matriculas-contenido > ul > li {
+			background: transparent;
+			padding: 0;
+			border-radius: 0;
+			margin-bottom: 0;
+		}
+
+		.imc-al-matricula {
+			background: #0a8ab8;
+			color: white !important;
+			padding: 12px 15px;
+			font-size: 12px;
+			line-height: 1.5;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-radius: 8px;
+			margin-bottom: 10px;
+		}
+
+		.imc-al-matricula::after {
+			content: "›";
+			font-size: 20px;
+			margin-left: 10px;
+		}
+
+		.imc-al-matricula:hover {
+			background: #007aa3;
+			text-decoration: none;
+		}
+
+		.imc-matricula-tutor {
+			margin-top: 15px;
+			padding-top: 15px;
+			border-top: 1px solid #eee;
+		}
+
+		.imc-matricula-tutor span {
+			font-size: 12px;
+			color: #666;
+		}
+
+		.imc-matricula-tutor strong {
+			display: block;
+			margin-top: 3px;
+		}
+
+		.imc-centro-datos {
+			font-size: 12px;
+			display: block;
+			background: #fff;
+			border-radius: 10px 10px 0 0;
+			padding: 15px;
+			margin: 0;
+			list-style: none;
+			border-top: none;
+		}
+
+		.imc-centro-datos > li {
+			padding: 10px 0;
+			border-bottom: 1px solid #eee;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.imc-centro-datos > li:last-child {
+			border-bottom: none;
+		}
+
+		.imc-matricula-tutor {
+			display: block;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 10px;
+		}
+
+		.imc-matricula-tutor p {
+			margin: 0;
+		}
+
+		.imc-matricula-tutor span {
+			font-size: 11px;
+			color: #999;
+			display: block;
+		}
+
+		.imc-matricula-tutor strong {
+			font-size: 14px;
+			font-style: italic;
+			font-weight: normal;
+		}
+
+		.imc-ce-da-imagen {
+			text-align: left;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.imc-ce-da-imagen img {
+			max-width: 50px;
+			margin-bottom: 0;
+		}
+
+		.imc-titulo {
+			font-weight: bold;
+			color: #333;
+			font-size: 14px;
+		}
+
+		.imc-etiqueta {
+			font-size: 11px;
+			color: #13addf;
+			width: 80px;
+			flex-shrink: 0;
+		}
+
+		.imc-dato {
+			flex: 1;
+			font-size: 12px;
+		}
+
+		.imc-datos-telf {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.imc-datos-telf li {
+			display: inline;
+		}
+
+		.imc-datos-telf a {
+			color: #333;
+			text-decoration: none;
+		}
+
+		.imc-datos-telf::before {
+			content: "☎";
+			margin-right: 5px;
+		}
+
+		.imc-envia-msj-contenedor {
+			display: block;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+
+		.bt-envia-mensaje {
+			background: #13addf;
+			color: white !important;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 12px;
+			display: block;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		.bt-envia-mensaje:hover {
+			background: #0a8ab8;
+		}
+
+		/* ============================================
+		   CONTENIDO PRINCIPAL / TABS
+		   ============================================ */
+		
+		.imc-es-matricula {
+			flex: 1 1 auto;
+			background: white;
+			box-shadow: none;
+			overflow: hidden;
+			border: none;
+			min-width: 0;
+			margin-right: 10px;
+		}
+
+		.imc-es-matricula-secciones {
+			display: flex;
+			background: #fff;
+			border-bottom: 1px solid #bed6da;
+			padding: 10px 10px 0 10px;
+			list-style: none;
+			margin: 0;
+			gap: 8px;
+		}
+
+		.imc-es-matricula-secciones > li {
+			flex: 1;
+			display: flex;
+		}
+
+		.imc-es-matricula-secciones > li > a {
+			padding: 12px 15px;
+			display: block;
+			width: 100%;
+			color: #666;
+			font-size: 13px;
+			border: 1px solid #bed6da;
+			border-bottom: none;
+			background: #e8f4f8;
+			margin-bottom: -1px;
+			border-radius: 10px 10px 0 0;
+			text-decoration: none;
+			text-align: center;
+		}
+
+		.imc-es-matricula-secciones > li > a:hover {
+			color: #333;
+			text-decoration: none;
+			background: #dfebed;
+		}
+
+		.imc-es-matricula-secciones > li > a.imc-seleccionado {
+			color: #333;
+			background: #fff;
+			border: 1px solid #bed6da;
+			border-bottom: 1px solid #fff;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		/* ============================================
+		   SECCIÓN DE CALIFICACIONES
+		   ============================================ */
+		
+		.imc-es-matricula-seccion {
+			display: none;
+			padding: 15px;
+			width: 100%;
+		}
+
+		.imc-es-matricula-seccion.imc-seleccionado {
+			display: block;
+			width: 100%;
+		}
+
+		.imc-calificaciones-tutor {
+			padding: .5em;
+			margin-bottom: 1em;
+			border: 1px solid #dfebed;
+		}
+
+		.imc-calificaciones-tutor p {
+			display: inline;
+			text-transform: uppercase;
+			padding-right: 1em;
+		}
+
+		.imc-calificaciones-tutor em {
+			font-size: 1.2em;
+			font-style: italic;
+		}
+
+		.imc-calificaciones-contenedor {
+			overflow: auto;
+			width: 100%;
+		}
+
+		.imc-calificaciones-tabla {
+			width: 100%;
+			font-size: 1em;
+			border-collapse: collapse;
+			empty-cells: show;
+			border: 1px solid #bed6da;
+			border-bottom: none;
+			border-left: none;
+			table-layout: auto;
+		}
+
+		.imc-calificaciones-tabla thead th {
+			height: 3.5em;
+			font-weight: normal;
+			text-align: center;
+			text-transform: uppercase;
+			padding: .5em;
+			background-color: #bed6da;
+			border-left: 1px solid #bed6da;
+		}
+
+		.imc-calificaciones-tabla thead th:first-child {
+			text-align: left;
+		}
+
+		.imc-calificaciones-tabla thead th span {
+			font-family: Georgia, "Times New Roman", Times, serif;
+		}
+
+		.imc-calificaciones-tabla tr {
+			border-bottom: 1px solid #bed6da;
+		}
+
+		.imc-calificaciones-tabla tr td {
+			width: 60px;
+			height: 2.5em;
+			font: normal 1.4em Georgia, "Times New Roman", Times, serif;
+			text-align: center;
+			padding: .5em 1em;
+			border-left: 1px solid #bed6da;
+		}
+
+		.imc-calificaciones-tabla tr td:first-child {
+			width: auto;
+			font: bold 1em Arial, Helvetica, sans-serif;
+			text-align: left;
+		}
+
+		.imc-calificaciones-tabla tbody tr:hover {
+			background-color: #ffc;
+		}
+
+		.imc-calificaciones-tabla tbody tr.imc-fecha-evaluacion th {
+			font-style: italic;
+			font-weight: normal;
+			text-align: right;
+			padding-right: .6em;
+			border-left: 1px solid #bed6da;
+			background-color: #fff;
+		}
+
+		.imc-calificaciones-tabla tbody tr.imc-fecha-evaluacion td {
+			font-size: .9em;
+			background-color: #fff;
+		}
+
+		.imc-calificaciones-tabla td.imc-tipo {
+			width: 1%;
+			font-size: .9em;
+			color: #c00;
+		}
+
+		.imc-calificaciones-tabla td.imc-tipo span {
+			display: none;
+		}
+
+		/* Leyenda */
+		.imc-calificaciones-leyenda {
+			padding: .5em;
+			margin-top: 1em;
+			background-color: #dfebed;
+		}
+
+		.imc-calificaciones-leyenda p {
+			font-size: .9em;
+			font-weight: bold;
+		}
+
+		.imc-calificaciones-leyenda dl {
+			margin-top: .5em;
+		}
+
+		.imc-calificaciones-leyenda dt,
+		.imc-calificaciones-leyenda dd {
+			display: inline-block;
+		}
+
+		.imc-calificaciones-leyenda dt {
+			font-weight: bold;
+			text-align: right;
+		}
+
+		.imc-calificaciones-leyenda dd {
+			padding-right: 2em;
+		}
+
+		/* ============================================
+		   MÓDULOS DE AVISOS (Calendario, Agenda, etc)
+		   - Ocultos cuando estamos en Qualificacions
+		   ============================================ */
+		
+		.imc-es-ma-es {
+			display: none;
+		}
+
+		.imc-es-ma-se {
+			display: none;
+		}
+
+		.imc-es-ma-se-listado {
+			display: none;
+		}
+
+		.imc-es-ma-se-calendario {
+			display: none;
+		}
+
+		.imc-avisos-modulo {
+			display: none;
+		}
+
+		.imc-calendario {
+			display: none;
+		}
+
+		.imc-listado-detalle {
+			display: none;
+		}
+
+		/* ============================================
+		   DATOS PERSONALES (popup)
+		   ============================================ */
+		
+		.imc-es-datos-personales {
+			display: none;
+		}
+
+		/* ============================================
+		   OCULTAR ELEMENTOS NO NECESARIOS
+		   ============================================ */
+		
+		.imc-cargando {
+			display: none !important;
+		}
+
+		.imc-media-queries {
+			display: none;
+		}
+
+		input[type="hidden"],
+		input[style*="display:none"] {
+			display: none;
+		}
+		
+		/* Ocultar elementos de módulos */
+		.imc-modulo-mas-info,
+		.imc-modulo-faltan-info,
+		.imc-modulo-opciones,
+		.imc-avisos-detalle {
+			display: none;
+		}
+
+		/* Fix para el contenedor de secciones internas de matrícula */
+		.imc-es-matricula > div > .imc-es-matricula-secciones:first-of-type {
+			display: flex;
+		}
+
+		/* El contenedor que tiene las secciones */
+		.imc-es-matricula > div {
+			height: auto !important;
+		}
+
+		/* ============================================
+		   RESPONSIVE
+		   ============================================ */
+		
+		@media (max-width: 900px) {
+			.imc-escritorio-seccion-on {
+				flex-direction: column;
+			}
+
+			.imc-escritorio-alumno-on {
+				flex-direction: column;
+			}
+
+			.imc-es-alumno {
+				width: 100%;
+			}
+
+			.imc-cabecera {
+				flex-direction: column;
+				gap: 10px;
+			}
+
+			.imc-cabecera ul {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.imc-es-matricula-secciones {
+				flex-wrap: wrap;
+			}
+
+			.imc-es-matricula-secciones > li > a {
+				padding: 10px 12px;
+				font-size: 12px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	
+	<input style="display:none" type="text" value="V06GM7rddvw8vYqi8JPVLa69m6mp+afx0aSipjZu6ShW6mAMa9/cRtCzwi7LUqZV" name="tokenSesion" id="tokenSesion">
+	<input style="display:none" type="text" value="null" name="origenApp" id="origenApp">
+	<input style="display:none" type="text" value="http://familia.edu.gva.es/wf-front/WEB-INF/jsp/myitaca/listar_alumnos_wf.jsp" name="urlActual" id="urlActual">
+	
+	
+			<div id="imc-media-queries" class="imc-media-queries"></div>
+	
+	<div class="imc-contenedor" id="imc-contenedor">
+		
+				
+
+
+		
+		<header id="imc-cabecera" style="display:inline" class="imc-cabecera">
+			
+			<div class="imc-itaca-logo" title="Ítaca"></div>
+			<h1>Web <em>família 2.0</em></h1>
+			<a href="logout_wf?tipo=out" class="bt bt-desconecta"><span>Desconnecta</span></a>
+			
+			<ul>
+				<li><a href="mas_info_wf" class="bt bt-mas-info bt-ajax"><span>Més informació</span></a></li>
+				<li><a href="tutor_wf" class="bt bt-usuario bt-ajax"><span>PAU SILVESTRE ARNANDIS</span></a></li>
+				<li><a href="listar_alumnos_wf" class="bt bt-alumnos-listado bt-seleccionado"><span>Alumnat</span></a></li>
+			</ul>
+			
+			<div class="imc-gva-logo" title="Generalitat Valenciana"></div>
+			
+		</header>
+		
+		<section class="imc-seccion" id="imc-seccion">
+			
+			<div id="imc-alumnos" class="imc-alumnos">
+			
+				<ul>
+					
+						<input type="hidden" id="patriaPotestad79856940" value="false">
+						
+						<li class="imc-alumno">
+						
+<div class="imc-alumno-foto">
+									
+										<img src="img/documento_wf.png" alt="">
+								
+							</div>
+							
+							<div class="imc-alumno-datos">
+							
+								<a href="alumno_datos_wf?alumno_id=79856940" data-id="79856940" id="79856940" class="imc-alumno-nombre imc-seleccionado">PAU SILVESTRE ARNANDIS</a>
+								
+									<ul class="imc-alumno-matriculas">
+									
+										
+					
+											
+											
+												
+												<input type="hidden" id="codCurso" value="2CFS - Segon / DESENVOLUPAMENT D'APLICACIONS MULTIPLATAFORMA (LFP) / GS / INFORMÀTICA I COMUNICACIONS (LFP)">
+											
+                                            
+												<li>
+													<a href="alumno_matricula_wf?alumno_id=79856940&amp;matricula_id=1123984294" data-id="1123984294">2CFS - Segon / DESENVOLUPAMENT D'APLICACIONS MULTIPLATAFORMA (LFP) / GS / INFORMÀTICA I COMUNICACIONS (LFP) - 2 DAM</a>
+												</li>
+												
+											
+											
+											
+									</ul>
+							
+							</div>
+							
+						</li>
+
+					
+					
+				</ul>
+			
+			</div>
+			
+			<p class="imc-ultima-conexion">Última connexió de <strong>SILVESTRE ARNANDIS, PAU</strong> el dia <em>11/12/2025 a les 08:08</em>.</p>
+		
+		</section>
+	
+		<section id="imc-escritorio-alumnos" class="imc-escritorio-seccion imc-escritorio-seccion-on">
+			<!-- info dinamica -->
+			
+		<div class="imc-escritorio-alumno imc-escritorio-alumno-on imc-escritorio-alumno-79856940"><div class="imc-es-alumno imc-es-al-bloque-on"><div class="imc-es-alumno-datos">
+						
+							<div class="imc-alumno-dp-foto">
+								
+								
+									<img src="img/documento_wf.png" alt="">
+								
+	
+								
+
+							</div>
+														
+							<div class="imc-alumno-dp-datos">
+							
+								<p class="imc-alumno-dp-nombre">PAU SILVESTRE ARNANDIS</p>
+								
+								<p class="imc-alumno-dp-nia"><abbr title="Número d'identificació de l'alumne/a">NIA</abbr>: <strong>10788359</strong></p>
+								
+									
+									<p class="fausto"><abbr title="NIF">NIF</abbr>: <strong>054282261F</strong></p>
+								
+								
+								<p class="imc-alumno-dp-info">
+								
+									
+										
+										
+											Home, nascut el 16 de maig de 2006 a BORRIANA (Espanya)
+										
+												
+									
+									
+
+									</p><p class="fausto"><abbr title="Nacionalidad">Nacionalitat</abbr>: <strong>Espanyola</strong></p>
+									
+								<p></p>
+							
+							<p><a href="javascript:;" class="bt bt-alumno-datos">Dades personals</a></p></div>
+							
+								
+									<ul class="imc-identidad-digital">
+										<h2 class="imc-identidad">Identitat digital</h2> 
+										
+											
+										
+																
+											<li>
+												<span class="imc-etiqueta">Correu electrònic</span>
+												<ul class="imc-dato imc-datos-correo">
+													
+														
+															<li>pausilarn@alu.edu.gva.es</li>
+														
+																				
+												</ul>
+											</li>
+										
+										
+										
+											
+										
+																
+											<li>
+												<span class="imc-etiqueta">Clau recuperació</span>
+												<ul class="imc-dato imc-datos-correo">
+													
+														
+															<li>676061</li>
+														
+																				
+												</ul>
+											</li>
+										
+										
+										
+											
+										
+																
+											<li>
+												<span class="imc-etiqueta">Contrasenya inicial</span>
+												<ul class="imc-dato imc-datos-correo">
+													
+														
+															<li>iQ3VUIqp</li>
+														
+																				
+												</ul>
+											</li>
+										
+										
+										<li>
+											
+											
+											
+											<a href="https://acces.edu.gva.es/sso/ad/ad.change.xhtml" target="_blank" onclick="abrirCambiaPass(event)" id="imc-id-contrasenya" class="imc-etiqueta">Canviar contrasenya</a>
+											
+											
+										</li>
+									</ul>
+									
+							
+						</div><div class="imc-es-alumno-matriculas"><h2>Matrícules 2025-2026</h2><div class="imc-es-alumno-matriculas-contenido"><ul>
+									
+										
+					
+											
+											
+												
+												<input type="hidden" id="codCurso" value="2CFS - Segon / DESENVOLUPAMENT D'APLICACIONS MULTIPLATAFORMA (LFP) / GS / INFORMÀTICA I COMUNICACIONS (LFP)">
+											
+                                            
+												<li>
+													<a href="alumno_matricula_wf?alumno_id=79856940&amp;matricula_id=1123984294" data-id="1123984294" class="imc-al-matricula imc-seleccionada">2CFS - Segon / DESENVOLUPAMENT D'APLICACIONS MULTIPLATAFORMA (LFP) / GS / INFORMÀTICA I COMUNICACIONS (LFP) - 2 DAM</a>
+												
+				
+					<ul class="imc-centro-datos"><li class="imc-matricula-tutor">
+						
+							<p><span>Tutor o tutora</span> <strong>JAIME ARAGO VALLS</strong></p>
+							
+								<div class="imc-envia-msj-contenedor">
+									<p class="imc-envia-msj-botonera">
+										<a href="reportar_wf?tipo=cmt&amp;profesor_id=1227925325" class="bt bt-envia-mensaje">Enviar un missatge</a>
+									</p>
+								</div>
+							
+						
+						
+
+					</li>
+						<li class="imc-ce-da-imagen">
+							
+							
+								<img src="logocentro_wf?logo_id=203660" alt="">
+							
+
+							
+							
+						<p class="imc-titulo">IES BENIGASLÓ</p></li>
+						<li>
+							<span class="imc-etiqueta">Adreça</span>
+							<span class="imc-dato">Avinguda ARCADI GARCÍA I SANZ Núm. 1<br>12600 VALL D'UIXÓ (LA)</span>
+						</li>
+						
+						
+							
+						
+							
+						
+							
+						
+						
+						<li>
+							<span class="imc-etiqueta">Telèfon de contacte</span>
+							<ul class="imc-dato imc-datos-telf">
+								
+									
+										<li><a href="tel:+34964738955">964738955</a></li>
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
+						
+
+						
+							
+						
+							
+						
+												
+						<li>
+							<span class="imc-etiqueta">Correu electrònic</span>
+							<ul class="imc-dato imc-datos-correo">
+								
+									
+										<li>12005751@edu.gva.es</li>
+									
+								
+									
+										<li>12005751@edu.gva.es</li>
+									
+															
+							</ul>
+						</li>
+						
+						
+						<li>
+							<span class="imc-etiqueta">Informació detallada</span>
+							
+							
+							
+								<span class="imc-dato"><a href="http://www.ceice.gva.es/va/web/centros-docentes/ficha-centro?codi=12005751" onclick="abrirCentro(event)" id="imc-da-ce-conselleria" class="imc-da-ce-conselleria" target="_blank" title="Aquest enllaç s'obri en una finestra nova ">Dades en la web de la Conselleria</a></span>
+							
+							
+						</li>
+						
+							<li class="imc-centro-comunicar imc-envia-msj-contenedor">
+								
+								<p class="imc-envia-msj-botonera">
+									<a href="reportar_wf?tipo=cmc&amp;centro_id=203660" class="bt bt-envia-mensaje">Enviar un missatge</a>
+								</p>
+								
+							</li>
+					</ul>
+				</li>
+												
+											
+											
+											
+									</ul></div></div></div><div class="imc-es-matricula imc-es-al-bloque-on" style="height: 1270.55px;"><div class="imc-cargando imc-cargando-matricula" style="display: none;">Carregant</div><div class=""><ul class="imc-es-matricula-secciones"><li><a href="javascript:;" data-href="" class="">Avisos</a></li><li><a href="javascript:;" data-href="alumno_avisos_wf?tipo=cm">Comunicacions</a></li><li><a href="javascript:;" data-href="alumno_calificaciones_wf" class="imc-seleccionado">Qualificacions</a></li><li><a href="javascript:;" data-href="alumno_materias_wf">Assignatures</a></li><li><a href="javascript:;" data-href="alumno_horarios_wf">Horaris</a></li><li><a href="javascript:;" data-href="alumno_tramites_wf">Tràmits</a></li></ul><div class="imc-es-matricula-secciones imc-es-ma-es"><div class="imc-es-matricula-seccion"><div class="imc-es-ma-se-listado"><div class="imc-es-ma-se-calendario"><div class="imc-calendario"><nav class="imc-ca-navegacion"><a class="bt bt-nav-ca-anterior" title="Anterior">&nbsp;</a><select class="imc-ca-nav-mes"><option value="9-2025">2025 - Setembre</option><option value="10-2025">2025 - Octubre</option><option value="11-2025">2025 - Novembre</option><option value="12-2025" selected="selected">2025 - Desembre</option><option value="1-2026">2026 - Gener</option><option value="2-2026">2026 - Febrer</option><option value="3-2026">2026 - Març</option><option value="4-2026">2026 - Abril</option><option value="5-2026">2026 - Maig</option><option value="6-2026">2026 - Juny</option><option value="7-2026">2026 - Juliol</option></select><button type="button">Ves</button><a class="bt bt-nav-ca-siguiente" title="Següent">&nbsp;</a></nav><table class="imc-ca-mes" data-date="12-2025"><caption>Desembre, 2025</caption><thead><tr><th title="Dilluns">Dl.</th><th title="Dimarts">Dm.</th><th title="Dimecres">Dc.</th><th title="Dijous">Dj.</th><th title="Divendres">Dv.</th><th title="Dissabte">Ds.</th><th title="Diumenge">Dg.</th></tr></thead><tbody><tr><td><span data-date="01-12-2025">1</span></td><td><a class="bt" href="javascript:;" data-date="02-12-2025">2</a></td><td><span data-date="03-12-2025">3</span></td><td><span data-date="04-12-2025">4</span></td><td><span data-date="05-12-2025">5</span></td><td><span data-date="06-12-2025">6</span></td><td><span data-date="07-12-2025">7</span></td></tr><tr><td><span data-date="08-12-2025">8</span></td><td><a class="bt" href="javascript:;" data-date="09-12-2025">9</a></td><td><span data-date="10-12-2025">10</span></td><td><span data-date="11-12-2025">11</span></td><td><span data-date="12-12-2025">12</span></td><td><span data-date="13-12-2025">13</span></td><td><span data-date="14-12-2025">14</span></td></tr><tr><td><span data-date="15-12-2025">15</span></td><td><span data-date="16-12-2025">16</span></td><td><span data-date="17-12-2025">17</span></td><td><span data-date="18-12-2025">18</span></td><td><span data-date="19-12-2025">19</span></td><td><span data-date="20-12-2025">20</span></td><td><span data-date="21-12-2025">21</span></td></tr><tr><td><span data-date="22-12-2025">22</span></td><td><span data-date="23-12-2025">23</span></td><td><span data-date="24-12-2025">24</span></td><td><span data-date="25-12-2025">25</span></td><td><span data-date="26-12-2025">26</span></td><td><span data-date="27-12-2025">27</span></td><td><span data-date="28-12-2025">28</span></td></tr><tr><td><span data-date="29-12-2025">29</span></td><td><span data-date="30-12-2025">30</span></td><td><span data-date="31-12-2025">31</span></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="imc-avisos-modulo"><h2>Agenda</h2><p class="imc-modulo-mas-info">+5</p>
+				
+				
+				
+				
+				
+				<ul class="imc-listado-detalle imc-listado-agenda">
+				
+				
+					
+					
+						<li data-date="17-11-2025">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=141237677" data-id="141237677" class="bt-av-tarea"><span>17/11/2025</span> <strong>VOT NO PRESENCIAL</strong></a>
+					</li>
+				
+				
+					
+					
+						<li data-date="17-11-2025">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=141235972" data-id="141235972" class="bt-av-tarea"><span>17/11/2025</span> <strong>Organització de les votacions a Consell Escolar d'aquest dimecres dia 19 de novembre de 2025</strong></a>
+					</li>
+				
+				
+					
+					
+						<li data-date="11-11-2025">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=140564164" data-id="140564164" class="bt-av-tarea"><span>11/11/2025</span> <strong>Ciberassetjament</strong></a>
+					</li>
+				
+				
+					
+					
+						<li data-date="10-11-2025">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=X1444122435" data-id="X1444122435" class="bt-av-tarea"><span>10/11/2025</span> <strong>Comportament en Sostenibilitat aplicada al sistema productiu</strong></a>
+					</li>
+				
+				
+					
+					
+						<li data-date="27-10-2025">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=138802092" data-id="138802092" class="bt-av-tarea"><span>27/10/2025</span> <strong>CONVOCATÒRIA DE VAGA DEMÀ 28/10</strong></a>
+					</li>
+				
+				
+					
+					
+						<li data-date="22-10-2025" class="imc-modulo-lista-escondido">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=138250206" data-id="138250206" class="bt-av-tarea"><span>22/10/2025</span> <strong>Eleccions a Consell Escolar</strong></a>
+					</li>
+				
+				
+					
+					
+						<li data-date="28-09-2025" class="imc-modulo-lista-escondido">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=134937102" data-id="134937102" class="bt-av-tarea"><span>28/09/2025</span> <strong>Situació d'emergència climàtica. Situación de emergencia climática</strong></a>
+					</li>
+				
+				
+					
+					
+						<li data-date="05-09-2025" class="imc-modulo-lista-escondido">
+					
+						<a href="alumno_avisos_wf?tipo=ag&amp;agenda_id=133074104" data-id="133074104" class="bt-av-tarea"><span>05/09/2025</span> <strong>INICI CURS: JORNADA DE BENVINGUDA 8 DE SETEMBRE</strong></a>
+					</li>
+				
+				
+				</ul>
+				
+				
+			
+			<div class="imc-avisos-detalle"></div><p class="imc-modulo-opciones imc-modulo-opciones-on"><a class="bt bt-modulo-ver-todas">Mostra les totes <span>8</span></a></p></div><div class="imc-avisos-modulo"><h2>Assistències</h2><p class="imc-modulo-mas-info">+5</p><p class="imc-modulo-faltan-info" title="Dies sense justificar">!9</p>
+				
+				
+				
+				
+				
+				<ul class="imc-listado-detalle imc-listado-faltas">
+					
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo" data-date="09-12-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=09/12/2025" data-id="09/12/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">09/12/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo" data-date="02-12-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=02/12/2025" data-id="02/12/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">02/12/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo" data-date="25-11-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=25/11/2025" data-id="25/11/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">25/11/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo" data-date="18-11-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=18/11/2025" data-id="18/11/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">18/11/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo" data-date="04-11-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=04/11/2025" data-id="04/11/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">04/11/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+	
+						
+							<li class="imc-falta-justificada imc-modulo-lista-escondido" data-date="29-10-2025">
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=29/10/2025" data-id="29/10/2025" class="bt-av-falta">Dimecres, <span class="bt-av-falta-fecha">29/10/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+	
+						
+							<li class="imc-falta-justificada imc-modulo-lista-escondido" data-date="28-10-2025">
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=28/10/2025" data-id="28/10/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">28/10/2025</span> <span class="bt-av-falta-num">4</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo imc-modulo-lista-escondido" data-date="23-10-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=23/10/2025" data-id="23/10/2025" class="bt-av-falta">Dijous, <span class="bt-av-falta-fecha">23/10/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+	
+						
+							<li class="imc-falta-justificada imc-modulo-lista-escondido" data-date="15-10-2025">
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=15/10/2025" data-id="15/10/2025" class="bt-av-falta">Dimecres, <span class="bt-av-falta-fecha">15/10/2025</span> <span class="bt-av-falta-num">5</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo imc-modulo-lista-escondido" data-date="07-10-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=07/10/2025" data-id="07/10/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">07/10/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+	
+						
+							<li class="imc-falta-justificada imc-modulo-lista-escondido" data-date="02-10-2025">
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=02/10/2025" data-id="02/10/2025" class="bt-av-falta">Dijous, <span class="bt-av-falta-fecha">02/10/2025</span> <span class="bt-av-falta-num">6</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo imc-modulo-lista-escondido" data-date="30-09-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=30/09/2025" data-id="30/09/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">30/09/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+	
+						
+							<li class="imc-falta-justificada imc-modulo-lista-escondido" data-date="29-09-2025">
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=29/09/2025" data-id="29/09/2025" class="bt-av-falta">Dilluns, <span class="bt-av-falta-fecha">29/09/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+
+						
+						
+						
+	
+						
+							<li class="imc-falta-justificada imc-modulo-lista-escondido" data-date="24-09-2025">
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=24/09/2025" data-id="24/09/2025" class="bt-av-falta">Dimecres, <span class="bt-av-falta-fecha">24/09/2025</span> <span class="bt-av-falta-num">3</span></a>
+						</li>
+
+					
+
+						
+						
+						
+							<li class="imc-li-de-nuevo imc-modulo-lista-escondido" data-date="23-09-2025">
+						
+	
+						
+						
+							<a href="alumno_avisos_wf?tipo=fa&amp;fecha_id=23/09/2025" data-id="23/09/2025" class="bt-av-falta">Dimarts, <span class="bt-av-falta-fecha">23/09/2025</span> <span class="bt-av-falta-num">1</span></a>
+						</li>
+
+					
+					
+				</ul>
+				
+				
+			
+			<div class="imc-avisos-detalle"></div><p class="imc-modulo-opciones imc-modulo-opciones-on"><a class="bt bt-modulo-ver-todas">Mostra les totes <span>15</span></a></p></div><div class="imc-avisos-modulo"><h2>Activitats</h2>
+				
+				
+					<p class="imc-sin-datos">
+						No hi ha activitats extraordinàries
+					</p>
+				
+				
+				
+			
+			<div class="imc-avisos-detalle"></div><p class="imc-modulo-opciones imc-modulo-opciones-on"></p></div></div></div><div class="imc-es-matricula-seccion"></div><div class="imc-es-matricula-seccion imc-seleccionado">
+			
+			
+
+		
+
+				<div class="imc-calificaciones-tutor">
+					<p>Tutor / Tutora</p>
+					<em>JAIME ARAGO VALLS</em>
+				</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				
+				<div class="imc-calificaciones-contenedor">
+				
+				<table class="imc-calificaciones-tabla">
+
+					<thead>
+						<tr>
+						<th colspan="2">Mòdul</th>
+						
+						
+																					
+						
+			    			<th>
+								<abbr title="1r Av">
+									1r Av
+								</abbr>	
+							</th>
+							
+							
+							
+			    		
+						
+							
+							
+			    		
+						
+							
+							
+			    		
+						
+							
+							
+			    		
+			    		</tr>
+			    	</thead>					
+					
+					<tbody>
+					
+						<tr class="imc-fecha-evaluacion"> 
+							<th colspan="2">Data de publicació de les qualificacions</th>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+									11-12-2025
+						    	</td>
+						    	
+							
+													   
+						    
+							
+							
+													   
+						    
+							
+							
+													   
+						    
+							
+							
+													   
+						    
+						</tr>
+						 
+			    		
+			    		<tr>
+							<td>Accés a dades</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			5
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Desenvolupament d'interfícies</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			9
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Digitalització aplicada al sistema productiu GS</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			5
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Itinerari personal per a l'ocupabilitat II</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			7
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Mòdul optatiu</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			8
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Programació de servicis i processos</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			5
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Programació multimèdia i dispositius mòbils</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			9
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Projecte intermodular 2 de Desenvolupament d'aplicacions multiplataforma</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			8
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Sistemes de gestió empresarial</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			7
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+						
+			    		<tr>
+							<td>Sostenibilitat aplicada al sistema productiu</td>
+							<td class="imc-tipo"><abbr></abbr><span></span></td>
+							
+							
+									
+							
+						    	<td data-title="1r Av">
+						    		
+						    			
+						    			8
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    		
+						    	</td>
+						    	
+						    	
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+							
+								
+						    	
+						    
+						</tr>
+							
+					</tbody>	
+			    		    
+				</table>
+				
+				</div>
+				
+				
+				
+				
+				
+				
+				
+					<div class="imc-calificaciones-leyenda">
+					
+						<p>Llegenda de qualificacions</p>
+						<dl>
+							
+							<dt>NE</dt>						
+							<dd>No avaluat</dd>
+							
+							
+							
+							<dt>1</dt>						
+							<dd>1</dd>
+							
+							
+							
+							<dt>2</dt>						
+							<dd>2</dd>
+							
+							
+							
+							<dt>3</dt>						
+							<dd>3</dd>
+							
+							
+							
+							<dt>4</dt>						
+							<dd>4</dd>
+							
+							
+							
+							<dt>5</dt>						
+							<dd>5</dd>
+							
+							
+							
+							<dt>6</dt>						
+							<dd>6</dd>
+							
+							
+							
+							<dt>7</dt>						
+							<dd>7</dd>
+							
+							
+							
+							<dt>8</dt>						
+							<dd>8</dd>
+							
+							
+							
+							<dt>9</dt>						
+							<dd>9</dd>
+							
+							
+							
+							<dt>10</dt>						
+							<dd>10</dd>
+							
+							
+							
+							<dt>MH</dt>						
+							<dd>Menció Honorífica</dd>
+							
+							
+						
+						</dl>
+						
+					</div>
+				
+					<br>
+					
+				
+				
+				
+				
+					<div class="imc-calificaciones-leyenda">
+						<p>Llegenda de termes</p>
+						<dl>
+							
+							<dt>Conv.:</dt>
+							
+							<dd>convalidat</dd>
+							
+							
+							<dt>Ex.:</dt>
+							
+							<dd>exempt</dd>
+							
+							
+							<dt>Ren.:</dt>
+							
+							<dd>renunciat</dd>
+							
+							
+							<dt>AA:</dt>
+							
+							<dd>aprovat amb anterioritat</dd>
+							
+						
+						</dl>
+					</div>
+				
+				
+				
+
+			  
+			
+				 
+			
+
+			
+					
+			
+			
+			
+					
+
+
+	</div><div class="imc-es-matricula-seccion"></div><div class="imc-es-matricula-seccion"></div><div class="imc-es-matricula-seccion"></div></div></div></div><div class="imc-es-datos-personales"><div class="imc-escritorio-alumno-dp-contenido">
+			
+			<header>
+				<h2>Dades de l'alumne/a</h2>
+			</header>
+			
+			<div class="imc-contenido">
+			
+				<div class="imc-alumno-datos-personales">
+					
+					<div class="imc-alumno-dp imc-alumno-dp-conlleria">
+									
+						<h3>En la Conselleria</h3>
+						
+						<div class="imc-alumno-dp-co-datos">
+						
+							<div class="imc-alumno-dp-foto">
+								
+								
+									<img src="img/documento_wf.png" alt="">
+								
+	
+								
+
+							</div>
+														
+							<div class="imc-alumno-dp-datos">
+							
+								<p class="imc-alumno-dp-nombre">PAU SILVESTRE ARNANDIS</p>
+								
+								<p class="imc-alumno-dp-nia"><abbr title="Número d'identificació de l'alumne/a">NIA</abbr>: <strong>10788359</strong></p>
+								
+									
+									<p class="fausto"><abbr title="NIF">NIF</abbr>: <strong>054282261F</strong></p>
+								
+								
+								<p class="imc-alumno-dp-info">
+								
+									
+										
+										
+											Home, nascut el 16 de maig de 2006 a BORRIANA (Espanya)
+										
+												
+									
+									
+
+									</p><p class="fausto"><abbr title="Nacionalidad">Nacionalitat</abbr>: <strong>Espanyola</strong></p>
+									
+								<p></p>
+							
+							</div>
+							
+								
+									<ul class="imc-identidad-digital">
+										<h2 class="imc-identidad">Identitat digital</h2> 
+										
+											
+										
+																
+											<li>
+												<span class="imc-etiqueta">Correu electrònic</span>
+												<ul class="imc-dato imc-datos-correo">
+													
+														
+															<li>pausilarn@alu.edu.gva.es</li>
+														
+																				
+												</ul>
+											</li>
+										
+										
+										
+											
+										
+																
+											<li>
+												<span class="imc-etiqueta">Clau recuperació</span>
+												<ul class="imc-dato imc-datos-correo">
+													
+														
+															<li>676061</li>
+														
+																				
+												</ul>
+											</li>
+										
+										
+										
+											
+										
+																
+											<li>
+												<span class="imc-etiqueta">Contrasenya inicial</span>
+												<ul class="imc-dato imc-datos-correo">
+													
+														
+															<li>iQ3VUIqp</li>
+														
+																				
+												</ul>
+											</li>
+										
+										
+										<li>
+											
+											
+											
+											<a href="https://acces.edu.gva.es/sso/ad/ad.change.xhtml" target="_blank" onclick="abrirCambiaPass(event)" id="imc-id-contrasenya" class="imc-etiqueta">Canviar contrasenya</a>
+											
+											
+										</li>
+									</ul>
+									
+							
+						</div>
+						
+					</div>
+					
+					<div class="imc-alumno-dp imc-alumno-dp-centro">
+					
+						<h3>Centre on cursa els estudis</h3>
+					
+						<ul class="imc-alumno-datos-centros">
+						
+							<li>
+								
+								
+								
+								<h4><a href="centro_datos_wf?centro_id=203660">IES BENIGASLÓ</a></h4>
+								
+								<ul class="imc-alumno-datos-matriculas">
+								
+									
+										<li>
+											<span class="imc-al-da-ma">2 DAM&nbsp;2CFS - Segon / DESENVOLUPAMENT D'APLICACIONS MULTIPLATAFORMA (LFP) / GS / INFORMÀTICA I COMUNICACIONS (LFP)</span>
+										</li>
+									
+									
+								</ul>
+								
+								<p class="imc-datos-son">Les <strong>dades de l'alumne/a</strong> són:</p>
+								
+								<ul class="imc-datos">
+									<li>
+										<span class="imc-etiqueta">Adreça</span>
+										<span class="imc-dato">Carrer Cº Rosa Del Vents Núm. 22 Esc. 1 Pis 1 Pta. C<br>12530 POBLADOS MARÍTIMOS</span>
+									</li>
+									
+									
+										
+									
+										
+									
+										
+									
+									
+									<li>
+										<span class="imc-etiqueta">Telèfon de contacte</span>
+										<ul class="imc-dato imc-datos-telf">
+											
+												
+													<li><a href="tel:+34643476981">643476981</a></li>
+												
+											
+												
+											
+												
+											
+										</ul>
+									</li>
+									
+									
+									
+										
+									
+										
+									
+									
+									<li>
+										<span class="imc-etiqueta">Correu electrònic:</span>
+										<ul class="imc-dato imc-datos-correo">
+											
+												
+													<li>pausilvest@gmail.com</li>
+												
+											
+												
+											
+										</ul>
+									</li>
+									
+									
+								</ul>
+								
+								
+									<div class="imc-envia-msj-contenedor">
+										<p class="imc-envia-msj-botonera">
+											<a href="reportar_wf?tipo=dac&amp;centro_id=203660&amp;alumno_id=79856940" class="bt bt-envia-mensaje">Comunicar un error</a>
+										</p>
+									</div>
+								
+								
+								
+								
+							</li>
+							
+						</ul>
+					
+					</div>
+					
+				</div>
+			
+			</div>
+		
+		</div></div></div></section>
+		
+		
+		    
+		<section id="imc-escritorio-mas-info" class="imc-escritorio-seccion">
+			<!-- info dinamica -->
+		</section>
+		
+		<section id="imc-escritorio-tutor" class="imc-escritorio-seccion">
+			<!-- info dinamica -->
+		</section>
+		
+		<section id="imc-escritorio-profesor" class="imc-escritorio-seccion">
+			<!-- info dinamica -->
+		</section>
+		
+	<p class="imc-ultima-conexion">Última connexió de <strong>SILVESTRE ARNANDIS, PAU</strong> el dia <em>11/12/2025 a les 08:08</em>.</p></div>
+	
+
+	
+	<script>
+	
+	var valor_origenAppLocal = null
+	
+	if(valor_origenAppLocal==true){
+		origenAppLocal = true;
+	}else{
+		origenAppLocal = false;
+	}		
+
+	$("a").each(function() {
+		
+		if(origenAppLocal){
+			   var $this = $(this);       
+			   var _href = $this.attr("href");
+			   var _data_href = $this.attr("data-href");
+			  // alert(_href);
+			   if(_href.indexOf('?') != -1){
+				   $this.attr("href", _href + '&origenAPP=1');
+				   $this.attr("data-href", _data_href + '&origenAPP=1'); 
+				   console.log("href"+ _href + '&origenAPP=1');
+				   console.log("data-href"+ _data_href + '&origenAPP=1');
+			   }else{
+				   $this.attr("href", _href + '?origenAPP=1'); 
+				   $this.attr("data-href", _data_href + '?origenAPP=1'); 
+				   
+				   console.log("href"+ _href + '?origenAPP=1');
+				   console.log("data-href"+ _data_href + '?origenAPP=1');
+			   }
+		}
+		    
+	});
+	
+	function avisaPadreGenerico() {
+		
+		var tokenNuevo = "V06GM7rddvw8vYqi8JPVLa69m6mp+afx0aSipjZu6ShW6mAMa9/cRtCzwi7LUqZV";
+		var urlActual = "http://familia.edu.gva.es/wf-front/WEB-INF/jsp/myitaca/listar_alumnos_wf.jsp";
+		//alert(urlActual);
+		parent.postMessage(
+					{motivo:    'nuevoTokenSesion', 
+						data: tokenNuevo,
+						url:urlActual},
+					"*"
+				);
+		
+										
+	}
+		
+		
+		if (window.addEventListener) {
+			window.addEventListener("message", handleParentMessage,false);
+		} else {
+			window.attachEvent("onmessage", handleParentMessage);
+		}
+		
+		function handleParentMessage(event) {
+		
+			var dataFromParentIframe = event.data;
+			
+		}
+		
+		
+		var anyoAcademico = ["1-9-2025", "31-8-2026"];
+		var hoy="11-12-2025";
+
+		var basedir = "../resources/wf/",
+			url_sin_sesion = "login_wf?session_expired",
+			url_comunicaciones = "alumno_avisos_wf?comunicaciones_id=",
+			calendario_dias_title = ['Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte', 'Diumenge'],
+			calendario_dias = ['Dl.', 'Dm.', 'Dc.', 'Dj.', 'Dv.', 'Ds.', 'Dg.'],
+			calendario_meses = ['Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny', 'Juliol', 'Agost', 'Setembre', 'Octubre', 'Novembre', 'Desembre'];
+
+		var txtMatriculas = 'Matrícules',
+			txtIr = 'Ves',
+			txtComunicaciones = 'Comunicacions',
+			txtDatosPersonales = 'Dades personals',
+			txtCargando = 'Carregant',
+			txtDescargando = 'Descarregant',
+			txtCancela = 'Cancel·la',
+			txtDeAcuerdo = 'D&apos;acord',
+			txtVerTodas = 'Mostra les totes',
+			txtDetalle = 'Detall',
+			txtVolverListado = 'Torna a la llista',
+			txtVerTodo = 'Mostra-ho tot',
+			txtAvisosDelDia = 'Avisos del dia',
+			txtAnterior = 'Anterior',
+			txtSiguiente = 'Següent',
+			txtLas5Ultimas = 'Les cinc últimes',
+			txtVerModulos = 'Mostra els mòduls',
+			txtHasDeCompletar = 'Completeu tots els camps',
+			txtModuloError = 'S&apos;ha produït un error mentre es carregava el mòdul. Torneu a intentar-ho passats uns minuts.',
+			txtVuelvaIntentarlo = 'Torneu a intentar-ho',
+			txtSinLeer = 'Sense llegir',
+			txtSinJustificar = 'Dies sense justificar',
+			txtVentanaNueva = 'Aquest enllaç s&apos;obri en una finestra nova ',
+			txtdiasFaltas = 'Dies amb faltes d&apos;assistència',
+			txtEnviandoMensaje = 'S&apos;està enviant un missatge',
+			txtCambiandoContrasenya = 'S&apos;està canviant la contrasenya',
+			txtVerLas5Ultimas = 'Mostra&apos;n les cinc últimes',
+			txtIdentidad = 'Identitat digital';
+			
+	</script>
+	
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+		    setTimeout(
+		        function open(event){
+		            document.querySelector(".imc-popup").style.display = "block";
+		        },
+		        100
+		    )
+		});
+	
+	
+		document.querySelector("#close").addEventListener("click", function(){
+		    document.querySelector(".imc-popup").style.display = "none";
+		});
+	</script>
+	
+	<!-- Scripts externos eliminados - añadir aquí tus propios scripts si es necesario -->
+
+</body></html>
